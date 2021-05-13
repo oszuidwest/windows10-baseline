@@ -12,6 +12,16 @@ if not exist "C:\Windows\deploy\" mkdir C:\Windows\deploy
 curl -o C:\Windows\sudo.bat https://raw.githubusercontent.com/zh0ul/sudo.bat/master/sudo.bat
 
 ::===============================================================
+:: Set time and power
+::===============================================================
+
+curl -o C:\Windows\deploy\time.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/time.bat
+curl -o C:\Windows\deploy\power.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/power.bat 
+
+CALL sudo.bat C:\Windows\deploy\time.bat
+CALL sudo.bat C:\Windows\deploy\power.bat
+
+::===============================================================
 :: Download and apply GPO baseline settings
 ::===============================================================
 
@@ -26,6 +36,11 @@ START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\userpol.txt /w C:\Windows\
 START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\syspol.txt /w C:\Windows\deploy\syspol.pol
 START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\firefoxpol.txt /w C:\Windows\deploy\firefoxpol.pol
 START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\edgepol.txt /w C:\Windows\deploy\edgepol.pol
+
+::===============================================================
+:: Instal package manager
+::===============================================================
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 ::===============================================================
 :: Debloat Windows 10
