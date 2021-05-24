@@ -37,6 +37,11 @@ START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\syspol.txt /w C:\Windows\d
 START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\firefoxpol.txt /w C:\Windows\deploy\firefoxpol.pol
 START C:\Windows\deploy\LGPO.exe /r C:\Windows\deploy\edgepol.txt /w C:\Windows\deploy\edgepol.pol
 
+START C:\Windows\deploy\LGPO.exe /un C:\Windows\deploy\userpol.pol
+START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\syspol.pol
+START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\firefoxpol.pol
+START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\edgepol.pol
+
 ::===============================================================
 :: Instal package manager
 ::===============================================================

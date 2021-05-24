@@ -25,6 +25,11 @@ DWORD:1
 
 User
 Software\Policies\Microsoft\Edge
+HideFirstRunExperience
+DWORD:1
+
+User
+Software\Policies\Microsoft\Edge
 TranslateEnabled
 DWORD:0
 
