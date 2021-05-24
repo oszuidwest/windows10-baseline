@@ -8,6 +8,11 @@ HideFastUserSwitching
 DWORD:1
 
 Computer
+Software\Microsoft\Windows\CurrentVersion\Policies\System
+EnableFirstLogonAnimation
+DWORD:0
+
+Computer
 Software\Policies\Microsoft\MicrosoftEdge\Main
 PreventFirstRunPage
 DWORD:1
