@@ -26,7 +26,6 @@ CALL sudo.bat C:\Windows\deploy\power.bat
 ::===============================================================
 
 curl -o C:\Windows\deploy\gpo.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/gpo.bat 
-
 CALL sudo.bat C:\Windows\deploy\gpo.bat
 
 ::===============================================================
