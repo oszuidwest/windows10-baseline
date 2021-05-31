@@ -1,10 +1,10 @@
 ::===============================================================
-:: Set department
+:: Set purpose
 ::===============================================================
 
 @echo off
-set /p _deploy_afdeling= "Kies een afdeling, FM, TV of RED:    "
-setx _deploy_afdeling "%_deploy_afdeling%" /m
+set /p _deploy_computer_purpose= "Kies type systeem: fm, edit, redactie, laptop of plain    "
+setx _deploy_computer_purpose "%_deploy_computer_purpose%" /m
 
 ::===============================================================
 :: Cleanup directory
