@@ -30,6 +30,13 @@ CALL sudo.bat C:\Windows\deploy\time.bat
 CALL sudo.bat C:\Windows\deploy\power.bat
 
 ::===============================================================
+:: Set workgroup
+::===============================================================
+
+curl -o C:\Windows\deploy\workgroup.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/workgroup.ps1
+CALL sudo.bat powershell.exe -executionpolicy unrestricted -file "C:\Windows\deploy\workgroup.ps1"
+
+::===============================================================
 :: Download and apply GPO baseline settings
 ::===============================================================
 
