@@ -3,7 +3,7 @@
 ::===============================================================
 
 @echo off
-set /p afdeling= "Kies een afdeling: FM, TV of RED    "
+set /p afdeling= "Kies een afdeling, FM, TV of RED:    "
 setx afdeling "%afdeling%" /m
 
 ::===============================================================
