@@ -2,8 +2,9 @@
 :: Set department
 ::===============================================================
 
-set afdeling=TV
-setx afdeling TV /m
+@echo off
+set /p afdeling= "Kies een afdeling: FM, TV of RED    "
+setx afdeling "%afdeling%" /m
 
 ::===============================================================
 :: Cleanup directory
