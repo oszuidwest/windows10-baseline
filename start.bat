@@ -3,8 +3,8 @@
 ::===============================================================
 
 @echo off
-set /p afdeling= "Kies een afdeling, FM, TV of RED:    "
-setx afdeling "%afdeling%" /m
+set /p _deploy_afdeling= "Kies een afdeling, FM, TV of RED:    "
+setx _deploy_afdeling "%_deploy_afdeling%" /m
 
 ::===============================================================
 :: Cleanup directory
