@@ -23,24 +23,24 @@ curl -o C:\Windows\sudo.bat https://raw.githubusercontent.com/zh0ul/sudo.bat/mas
 :: Set time and power
 ::===============================================================
 
-curl -o C:\Windows\deploy\time.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/time.bat
-curl -o C:\Windows\deploy\power.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/power.bat 
+curl -o C:\Windows\deploy\ntptime.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/ntptime.bat
+curl -o C:\Windows\deploy\power.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/powerconf.bat
 
-CALL sudo.bat C:\Windows\deploy\time.bat
-CALL sudo.bat C:\Windows\deploy\power.bat
+CALL sudo.bat C:\Windows\deploy\ntptime.bat
+CALL sudo.bat C:\Windows\deploy\powerconf.bat
 
 ::===============================================================
 :: Set workgroup
 ::===============================================================
 
-curl -o C:\Windows\deploy\workgroup.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/workgroup.ps1
+curl -o C:\Windows\deploy\workgroup.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/workgroup.ps1
 CALL sudo.bat powershell.exe -executionpolicy unrestricted -file "C:\Windows\deploy\workgroup.ps1"
 
 ::===============================================================
 :: Download and apply GPO baseline settings
 ::===============================================================
 
-curl -o C:\Windows\deploy\gpo.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/gpo.bat 
+curl -o C:\Windows\deploy\gpo.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/gpo.bat
 CALL sudo.bat C:\Windows\deploy\gpo.bat
 
 ::===============================================================
@@ -53,12 +53,12 @@ CALL sudo.bat C:\Windows\deploy\gpo.bat
 :: Instal baseline apps
 ::===============================================================
 
-curl -o C:\Windows\deploy\apps.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/apps.bat
+curl -o C:\Windows\deploy\apps.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/apps.bat
 CALL sudo.bat C:\Windows\deploy\apps.bat
 
 ::===============================================================
 :: Debloat Windows 10
 ::===============================================================
 
-curl -o C:\Windows\deploy\debloat.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/scripts/debloat.ps1 
+curl -o C:\Windows\deploy\debloat.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/debloat.ps1
 CALL sudo.bat powershell.exe -executionpolicy unrestricted -file "C:\Windows\deploy\debloat.ps1"
