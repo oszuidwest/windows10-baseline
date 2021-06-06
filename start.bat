@@ -24,7 +24,7 @@ curl -o C:\Windows\sudo.bat https://raw.githubusercontent.com/zh0ul/sudo.bat/mas
 ::===============================================================
 
 curl -o C:\Windows\deploy\ntptime.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/ntptime.bat
-curl -o C:\Windows\deploy\power.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/powerconf.bat
+curl -o C:\Windows\deploy\powerconf.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/powerconf.bat
 
 CALL sudo.bat C:\Windows\deploy\ntptime.bat
 CALL sudo.bat C:\Windows\deploy\powerconf.bat
