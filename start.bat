@@ -30,6 +30,13 @@ CALL sudo.bat C:\Windows\deploy\ntptime.bat
 CALL sudo.bat C:\Windows\deploy\powerconf.bat
 
 ::===============================================================
+:: Set wallpaper
+::===============================================================
+
+curl -o C:\Windows\deploy\wallaper.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/wallaper.bat
+CALL sudo.bat C:\Windows\deploy\wallaper.bat
+
+::===============================================================
 :: Set workgroup
 ::===============================================================
 
