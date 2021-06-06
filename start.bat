@@ -33,8 +33,8 @@ CALL sudo.bat C:\Windows\deploy\powerconf.bat
 :: Set wallpaper
 ::===============================================================
 
-curl -o C:\Windows\deploy\wallaper.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/wallaper.bat
-CALL sudo.bat C:\Windows\deploy\wallaper.bat
+curl -o C:\Windows\deploy\wallpaper.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/wallpaper.bat
+CALL sudo.bat C:\Windows\deploy\wallpaper.bat
 
 ::===============================================================
 :: Set workgroup
