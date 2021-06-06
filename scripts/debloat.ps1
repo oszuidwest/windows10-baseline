@@ -1,6 +1,6 @@
 <#
    Windows 10 debloat
-   Tested only on Windows 10 2020H2
+   Tested only on Windows 10 2021H1
 #>
 
 # Microsoft bloatware
