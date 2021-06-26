@@ -13,6 +13,11 @@ EnableFirstLogonAnimation
 DWORD:0
 
 Computer
+Software\Policies\Microsoft\Windows\Windows Feeds
+EnableFeeds
+DWORD:0
+
+Computer
 Software\Policies\Microsoft\MicrosoftEdge\Main
 PreventFirstRunPage
 DWORD:1
