@@ -37,6 +37,13 @@ curl -o C:\Windows\deploy\wallpaper.bat https://raw.githubusercontent.com/oszuid
 CALL sudo.bat C:\Windows\deploy\wallpaper.bat
 
 ::===============================================================
+:: Add users
+::===============================================================
+
+curl -o C:\Windows\deploy\wallpaper.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/users.bat
+CALL sudo.bat C:\Windows\deploy\users.bat
+
+::===============================================================
 :: Set workgroup
 ::===============================================================
 
