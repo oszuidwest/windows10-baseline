@@ -6,7 +6,11 @@ if not "%_deploy_computer_purpose%"=="plain" (
     choco install libreoffice-fresh -y
     choco install teamviewer.host -y --ignore-checksums
 )
+
 if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
-    choco install audacity -y
+    choco install paint.net -y
+)
+
+if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
     choco install paint.net -y
 )
