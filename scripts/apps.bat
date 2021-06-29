@@ -8,7 +8,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
 )
 
 if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
-    choco install paint.net -y
+    choco install audacity -y
 )
 
 if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
