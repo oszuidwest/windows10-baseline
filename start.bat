@@ -47,7 +47,7 @@ CALL sudo.bat C:\Windows\deploy\users.bat
 :: Add start menu (it's enabled by a GPO)
 ::===============================================================
 
-curl -o C:\Windows\deploy\start.xml https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/assets/start.xml
+curl -o C:\Windows\deploy\start.xml https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/assets/start-edit.xml
 
 ::===============================================================
 :: Set workgroup
