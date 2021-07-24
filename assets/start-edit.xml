@@ -21,8 +21,10 @@
         <start:Group Name="Productie">
           <start:DesktopApplicationTile Size="2x2" Column="0" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Premiere Pro 2021.lnk" />
           <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Audition 2021.lnk" />
-		  <start:DesktopApplicationTile Size="2x2" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Photoshop 2021.lnk" />
-          <start:DesktopApplicationTile Size="2x2" Column="6" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Creative Cloud.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Photoshop 2021.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="6" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Media Encoder 2021.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="8" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe After Effects 2021.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Column="10" Row="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Adobe Creative Cloud.lnk" />
         </start:Group>
       </defaultlayout:StartLayout>
     </StartLayoutCollection>
