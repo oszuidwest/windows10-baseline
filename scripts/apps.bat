@@ -9,6 +9,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
 
 if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
     choco install audacity -y
+	choco install thunderbird -y
 )
 
 if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
