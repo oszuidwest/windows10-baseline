@@ -5,7 +5,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
     choco install 7zip -y
     choco install libreoffice-fresh -y
     choco install teamviewer.host -y --ignore-checksums
-	choco install microsoft-teams.install
+    choco install microsoft-teams.install -y
 )
 
 if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
