@@ -4,7 +4,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
     choco install vlc -y
     choco install 7zip -y
     choco install libreoffice-fresh -y
-    choco install teamviewer.host -y --ignore-checksums
+    choco install teamviewer.host -y
     choco install microsoft-teams.install -y --params "'/AllUsers /NoAutoStart'"
 )
 
