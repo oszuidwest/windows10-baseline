@@ -6,6 +6,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
     choco install libreoffice-fresh -y
     choco install teamviewer.host -y
     choco install microsoft-teams.install -y --params "'/AllUsers /NoAutoStart'"
+    del "%Public%\Desktop\TeamViewer*.lnk"
 )
 
 if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" "%_deploy_computer_purpose%"=="redactie" (
