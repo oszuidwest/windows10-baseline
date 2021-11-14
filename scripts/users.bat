@@ -9,7 +9,6 @@ if "%_deploy_computer_purpose%"=="fm" REG ADD "HKLM\Software\Microsoft\Windows N
 if not "%_deploy_computer_purpose%"=="plain" if not "%_deploy_computer_purpose%"=="laptop" (
 REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /t REG_SZ /d "oszw" /f
 REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 1 /f
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "DisableEdgeDesktopShortcutCreation" /t REG_DWORD /d "1" /f
 )
 
 net accounts /maxpwage:unlimited
