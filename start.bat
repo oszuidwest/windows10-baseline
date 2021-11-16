@@ -1,10 +1,12 @@
 ::===============================================================
-:: Set purpose
+:: Set variables
 ::===============================================================
 
 @echo off
 set /p _deploy_computer_purpose= "Kies type systeem: fm, edit, redactie, laptop of plain    "
 setx _deploy_computer_purpose "%_deploy_computer_purpose%" /m
+set /p _deploy_user_password= "Geef het wachtwoord voor de gebruker in    "
+setx _deploy_user_password "%_deploy_user_password%" /m
 
 ::===============================================================
 :: Cleanup directory
