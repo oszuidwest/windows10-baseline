@@ -9,7 +9,17 @@ if not "%_deploy_computer_purpose%"=="plain" (
     del "%Public%\Desktop\TeamViewer*.lnk"
 )
 
-if "%_deploy_computer_purpose%"=="fm" if "%_deploy_computer_purpose%"=="laptop" if "%_deploy_computer_purpose%"=="redactie" (
+if "%_deploy_computer_purpose%"=="fm" (
+    choco install audacity -y
+    choco install thunderbird -y
+)
+
+if "%_deploy_computer_purpose%"=="laptop" (
+    choco install audacity -y
+    choco install thunderbird -y
+)
+
+if "%_deploy_computer_purpose%"=="redactie" (
     choco install audacity -y
     choco install thunderbird -y
 )
