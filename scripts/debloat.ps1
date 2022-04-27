@@ -88,7 +88,11 @@ Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol"
 # XPS printer is not needed
 Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Printing-XPSServices-Features"
 
-# Prevent PC health check app from being installed
+# Remove PC Health Check App
+$PcHealthCheckBloatware = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq "Windows Pc-statuscontrole"}
+$PcHealthCheckBloatware.Uninstall()
+
+# Prevent PC Health Check App from being installed
 if((Test-Path -LiteralPath "HKLM:\SOFTWARE\Microsoft\PCHC") -ne $true) {  New-Item "HKLM:\SOFTWARE\Microsoft\PCHC" -force -ea SilentlyContinue };
 New-ItemProperty -LiteralPath 'HKLM:\SOFTWARE\Microsoft\PCHC' -Name 'PreviousUninstall' -Value 1 -PropertyType DWord -Force -ea SilentlyContinue;
 
