@@ -7,6 +7,7 @@ if not "%_deploy_computer_purpose%"=="plain" (
     choco install teamviewer.host -y
     choco install microsoft-teams.install -y --params "'/AllUsers /NoAutoStart'"
     del "%Public%\Desktop\TeamViewer*.lnk"
+    wusa /uninstall /kb:5005463
 )
 
 if "%_deploy_computer_purpose%"=="fm" (
