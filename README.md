@@ -1,5 +1,5 @@
 # windows10-baseline
-Baseline configuration for Windows 10 computers owned by Streekomroep ZuidWest. Based on nl_NL Windows 10 21H2. Not tested on other versions.
+Baseline configuration for Windows 10 computers owned by Streekomroep ZuidWest. Based on nl_NL Windows 10 Pro 21H2. Not tested on other versions.
 
 ## How to use
 
