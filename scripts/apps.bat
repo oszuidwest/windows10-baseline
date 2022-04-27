@@ -21,7 +21,6 @@ if "%_deploy_computer_purpose%"=="laptop" (
 
 if "%_deploy_computer_purpose%"=="redactie" (
     choco install audacity -y
-    choco install thunderbird -y
 )
 
 if "%_deploy_computer_purpose%"=="laptop" if "%_deploy_computer_purpose%"=="redactie" (
