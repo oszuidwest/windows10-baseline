@@ -152,8 +152,3 @@ User:Non-Administrators
 Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist
 1
 SZ:*
-
-User:Non-Administrators
-Software\Policies\Microsoft\MicrosoftEdge\Main
-PreventFirstRunPage
-DWORD:1
