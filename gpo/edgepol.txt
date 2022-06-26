@@ -1,154 +1,154 @@
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 NewTabPageHideDefaultTopSites
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ClearCachedImagesAndFilesOnExit
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ConfigureDoNotTrack
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 HideFirstRunExperience
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 BlockExternalExtensions
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 RestoreOnStartup
 DWORD:4
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 HomepageIsNewTabPage
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 AdsSettingForIntrusiveAdsSites
 DWORD:2
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 BingAdsSuppression
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 AutoImportAtFirstRun
 DELETE
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 AutofillAddressEnabled
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 AutofillCreditCardEnabled
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 PasswordManagerEnabled
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 TrackingPrevention
 DWORD:2
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportPaymentInfo
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportHistory
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportBrowserSettings
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportCookies
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportExtensions
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportFavorites
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportAutofillFormData
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportOpenTabs
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportSavedPasswords
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportShortcuts
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportHomepage
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 ImportSearchEngine
 DWORD:0
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 DefaultSearchProviderEnabled
 DWORD:1
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 NewTabPageSearchBox
 SZ:redirect
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge
 DefaultNotificationsSetting
 DWORD:2
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist
 *
 DELETEALLVALUES
 
-User:Non-Administrators
+User
 Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist
 1
 SZ:*
