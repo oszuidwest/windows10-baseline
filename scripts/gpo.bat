@@ -17,4 +17,4 @@ TIMEOUT 5
 START C:\Windows\deploy\LGPO.exe /un C:\Windows\deploy\userpol.pol
 START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\syspol.pol
 START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\firefoxpol.pol
-START C:\Windows\deploy\LGPO.exe /m C:\Windows\deploy\edgepol.pol
+START C:\Windows\deploy\LGPO.exe /un C:\Windows\deploy\edgepol.pol
