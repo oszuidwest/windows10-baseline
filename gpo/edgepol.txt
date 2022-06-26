@@ -25,16 +25,6 @@ DWORD:1
 
 User
 Software\Policies\Microsoft\Edge
-RestoreOnStartup
-DWORD:4
-
-User
-Software\Policies\Microsoft\Edge
-HomepageIsNewTabPage
-DWORD:0
-
-User
-Software\Policies\Microsoft\Edge
 AdsSettingForIntrusiveAdsSites
 DWORD:2
 
@@ -127,11 +117,6 @@ User
 Software\Policies\Microsoft\Edge
 ImportSearchEngine
 DWORD:0
-
-User
-Software\Policies\Microsoft\Edge
-DefaultSearchProviderEnabled
-DWORD:1
 
 User
 Software\Policies\Microsoft\Edge
