@@ -5,7 +5,7 @@
 @echo off
 set /p _deploy_computer_purpose= "Kies type systeem: fm, edit, redactie, laptop of plain    "
 setx _deploy_computer_purpose "%_deploy_computer_purpose%" /m
-set /p _deploy_user_password= "Geef het wachtwoord voor de gebruker in    "
+set /p _deploy_user_password= "Geef het wachtwoord voor de gebruiker in    "
 setx _deploy_user_password "%_deploy_user_password%" /m
 set /p _deploy_computer_name= "Vul computernaam in    "
 setx _deploy_computer_name "%_deploy_computer_name%" /m
@@ -58,7 +58,7 @@ CALL sudo.bat C:\Windows\deploy\startmenu.bat
 :: Set workgroup and name
 ::===============================================================
 
-curl -o C:\Windows\deploy\workgroup.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/workgroupname.ps1
+curl -o C:\Windows\deploy\workgroupname.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/workgroupname.ps1
 CALL sudo.bat powershell.exe -executionpolicy unrestricted -file "C:\Windows\deploy\workgroupname.ps1"
 
 ::===============================================================
