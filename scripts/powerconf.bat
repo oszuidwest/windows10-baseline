@@ -1,3 +1,4 @@
+@echo off 
 powercfg /change monitor-timeout-ac 30
 powercfg /change monitor-timeout-dc 30
 powercfg /change disk-timeout-ac 0
