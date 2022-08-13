@@ -103,5 +103,8 @@ $PcHealthCheckBloatware.Uninstall()
 if((Test-Path -LiteralPath "HKLM:\SOFTWARE\Microsoft\PCHC") -ne $true) {  New-Item "HKLM:\SOFTWARE\Microsoft\PCHC" -force -ea SilentlyContinue };
 New-ItemProperty -LiteralPath 'HKLM:\SOFTWARE\Microsoft\PCHC' -Name 'PreviousUninstall' -Value 1 -PropertyType DWord -Force -ea SilentlyContinue;
 
+# Get rid of OneDrive
+Start-Process c:\windows\deploy\onedrive.bat
+
 # This command shows all the installed apps, here for debugging
 #Get-AppxPackage -AllUsers | Select Name, PackageFullName
