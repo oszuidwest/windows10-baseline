@@ -66,7 +66,6 @@ $apps = @(
     "*king.com.CandyCrushSodaSaga*"
     "*king.com.CandyCrushSaga*"
     "*Microsoft.Asphalt8Airborne*"
-    "Hotspot Shield*"
 )
 
 foreach ($app in $apps) {
