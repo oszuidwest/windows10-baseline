@@ -79,6 +79,7 @@ CALL sudo.bat C:\Windows\deploy\gpo.bat
 ::===============================================================
 
 curl -o C:\Windows\deploy\apps.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/apps.bat
+curl -o C:\Windows\deploy\onedrive.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/onedrive.bat
 CALL sudo.bat C:\Windows\deploy\apps.bat
 
 ::===============================================================
