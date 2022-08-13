@@ -83,9 +83,9 @@ Get-AppXProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -AllU
 Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Internet-Explorer-Optional-amd64"
 
 # SMBv1 is unsafe
-dism /online /Disable-Feature /FeatureName:"SMB1Protocol" /NoRestart
-dism /Online /Disable-Feature /FeatureName:"SMB1Protocol-Client" /NoRestart
-dism /Online /Disable-Feature /FeatureName:"SMB1Protocol-Server" /NoRestart
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol"
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol-Client"
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol-Server"
 
 # XPS printer is not needed
 Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Printing-XPSServices-Features"
