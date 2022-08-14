@@ -5,7 +5,7 @@ if ( $curname -ne $regname )
 {
 Rename-Computer -NewName "$regname" -Force
 }
-if ( $curgroup -ne oszw )
+if ( $curgroup -ne "oszw" )
 {
 Add-Computer -WorkGroupName oszw
 }
