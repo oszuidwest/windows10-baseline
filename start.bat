@@ -88,3 +88,4 @@ CALL sudo.bat C:\Windows\deploy\apps.bat
 curl -o C:\Windows\deploy\debloat.ps1 https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/debloat.ps1
 curl -o C:\Windows\deploy\onedrive.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/scripts/onedrive.bat
 CALL sudo.bat powershell.exe -executionpolicy unrestricted -file "C:\Windows\deploy\debloat.ps1"
+CALL sudo.bat C:\Windows\deploy\onedrive.bat
