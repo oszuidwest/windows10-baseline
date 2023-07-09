@@ -9,11 +9,6 @@ DWORD:0
 
 User
 Software\Policies\Microsoft\Edge
-WebWidgetAllowed
-DWORD:0
-
-User
-Software\Policies\Microsoft\Edge
 HubsSidebarEnabled
 DWORD:0
 
