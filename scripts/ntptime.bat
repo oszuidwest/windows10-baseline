@@ -8,3 +8,4 @@ w32tm /config /update
 w32tm /resync /rediscover
 sc triggerinfo w32time delete
 sc config w32time start=auto
+pause

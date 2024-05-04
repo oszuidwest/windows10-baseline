@@ -12,3 +12,4 @@ REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdmi
 )
 
 net accounts /maxpwage:unlimited
+pause

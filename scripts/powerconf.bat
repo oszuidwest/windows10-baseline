@@ -8,3 +8,4 @@ powercfg /change standby-timeout-dc 60
 powercfg /change hibernate-timeout-ac 0
 powercfg /change hibernate-timeout-dc 0
 powercfg /hibernate off
+pause
