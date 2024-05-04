@@ -1,110 +1,160 @@
-<#
-   Windows 10 debloat
-   Tested only on Windows 10 Pro 2021H2
-#>
+# Define a function to remove UWP apps based on their package names
+function Remove-UWPApp {
+    param (
+        [string[]]$AppxPackages
+    )
 
-# Microsoft bloatware
-$apps = @(
-    "Microsoft.3DBuilder"
-    "Microsoft.Appconnector"
-    "Microsoft.BingFinance"
-    "Microsoft.BingNews"
-    "Microsoft.BingSports"
-    "Microsoft.BingTranslator"
-    "Microsoft.BingWeather"
-    "Microsoft.FreshPaint"
-    "Microsoft.GamingServices"
-    "Microsoft.Microsoft3DViewer"
-    "Microsoft.MicrosoftEdge"
-    "Microsoft.MicrosoftEdgeDevToolsClient"
-    "Microsoft.Windows.Holographic.FirstRun"
-    "Microsoft.Windows.PeopleExperienceHost"
-    "Microsoft.MicrosoftOfficeHub"
-    "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MicrosoftSolitaireCollection"
-    "Microsoft.MicrosoftStickyNotes"
-    "Microsoft.MinecraftUWP"
-    "Microsoft.NetworkSpeedTest"
-    "Microsoft.Office.OneNote"
-    "Microsoft.OneConnect"
-    "Microsoft.People"
-    "Microsoft.Print3D"
-    "Microsoft.SkypeApp"
-    "Microsoft.Wallet"
-    "Microsoft.Windows.Photos"
-    "Microsoft.WindowsAlarms"
-    "Microsoft.WindowsCalculator"
-    "Microsoft.WindowsCamera"
-    "microsoft.windowscommunicationsapps"
-    "Microsoft.WindowsMaps"
-    "Microsoft.WindowsPhone"
-    "Microsoft.WindowsSoundRecorder"
-    "Microsoft.Xbox.TCUI"
-    "Microsoft.XboxApp"
-    "Microsoft.XboxGameOverlay"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.XboxSpeechToTextOverlay"
-    "Microsoft.YourPhone"
-    "Microsoft.ZuneMusic"
-    "Microsoft.ZuneVideo"
-    "Microsoft.CommsPhone"
-    "Microsoft.ConnectivityStore"
-    "Microsoft.GetHelp"
-    "Microsoft.Getstarted"
-    "Microsoft.Messaging"
-    "Microsoft.Office.Sway"
-    "Microsoft.OneConnect"
-    "Microsoft.WindowsFeedbackHub"
-    "Microsoft.WindowsFeedback"
-    "Microsoft.Microsoft3DViewer"
-    "Microsoft.BingFoodAndDrink"
-    "Microsoft.BingHealthAndFitness"
-    "Microsoft.BingTravel"
-    "Microsoft.WindowsReadingList"
-    "Microsoft.MixedReality.Portal"
-    "Microsoft.ScreenSketch"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.Todos"
-    "Microsoft.MicrosoftMahjong"
-    "Microsoft.549981C3F5F10" # Dit is cortana
-    "*king.com.BubbleWitch3Saga*"
-    "*king.com.CandyCrushSodaSaga*"
-    "*king.com.CandyCrushSaga*"
-    "*Microsoft.Asphalt8Airborne*"
-)
-
-foreach ($app in $apps) {
-    Get-AppxPackage -Name $app | Remove-AppxPackage -AllUsers
-
-    Get-AppXProvisionedPackage -Online |
-        Where-Object DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
+    foreach ($app in $AppxPackages) {
+        $package = Get-AppxPackage -Name $app -ErrorAction SilentlyContinue
+        if ($package) {
+            Write-Output "Removing $app..."
+            Remove-AppxPackage -Package $package.PackageFullName -ErrorAction SilentlyContinue
+            Write-Output "$app removed successfully."
+        }
+        else {
+            Write-Output "$app not found or already removed."
+        }
+    }
 }
 
-# Online components (Windows Store etc)
-Get-AppXProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -AllUsers
+# Define the list of Microsoft, third-party, manufacturer, social media, and streaming service apps to remove
+$MSApps = @(
+        # Default Windows 10+ apps
+        "Microsoft.3DBuilder"                    # 3D Builder
+        "Microsoft.549981C3F5F10"                # Cortana
+        "Microsoft.Appconnector"
+        "Microsoft.BingFinance"                  # Finance
+        "Microsoft.BingFoodAndDrink"             # Food And Drink
+        "Microsoft.BingHealthAndFitness"         # Health And Fitness
+        "Microsoft.BingNews"                     # News
+        "Microsoft.BingSports"                   # Sports
+        "Microsoft.BingTranslator"               # Translator
+        "Microsoft.BingTravel"                   # Travel
+        "Microsoft.BingWeather"                  # Weather
+        "Microsoft.CommsPhone"
+        "Microsoft.ConnectivityStore"
+        "Microsoft.GetHelp"
+        "Microsoft.Getstarted"
+        "Microsoft.Messaging"
+        "Microsoft.Microsoft3DViewer"
+        "Microsoft.MicrosoftOfficeHub"
+        "Microsoft.MicrosoftPowerBIForWindows"
+        "Microsoft.MicrosoftSolitaireCollection" # MS Solitaire
+        "Microsoft.MixedReality.Portal"
+        "Microsoft.NetworkSpeedTest"
+        "Microsoft.Office.OneNote"               # MS Office One Note
+        "Microsoft.Office.Sway"
+        "Microsoft.OneConnect"
+        "Microsoft.People"                       # People
+        "Microsoft.MSPaint"                      # Paint 3D
+        "Microsoft.Print3D"                      # Print 3D
+        "Microsoft.SkypeApp"                     # Skype (Who still uses Skype? Use Discord)
+        "Microsoft.Todos"                        # Microsoft To Do
+        "Microsoft.Wallet"
+        "Microsoft.Whiteboard"                   # Microsoft Whiteboard
+        "Microsoft.WindowsAlarms"                # Alarms
+        "microsoft.windowscommunicationsapps"
+        "Microsoft.WindowsFeedbackHub"           # Feedback Hub
+        "Microsoft.WindowsMaps"                  # Maps
+        "Microsoft.WindowsPhone"
+        "Microsoft.WindowsReadingList"
+        "Microsoft.WindowsSoundRecorder"         # Windows Sound Recorder
+        "Microsoft.XboxApp"                      # Xbox Console Companion (Replaced by new App)
+        "Microsoft.YourPhone"                    # Your Phone
+        "Microsoft.ZuneMusic"                    # Groove Music / (New) Windows Media Player
+        "Microsoft.ZuneVideo"                    # Movies & TV
+        "Microsoft.Windows.DevHome"              # DevHome
+        # Apps which other apps depend on
+        "Microsoft.Advertising.Xaml"
 
-# We don't need IE11
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Internet-Explorer-Optional-amd64"
+        # Default Windows 11 apps
+        "Clipchamp.Clipchamp"				     # Clipchamp – Video Editor
+        "MicrosoftWindows.Client.WebExperience"  # Taskbar Widgets
+        "MicrosoftTeams"                         # Microsoft Teams / Previewo"
+)
 
-# SMBv1 is unsafe
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol"
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol-Client"
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "SMB1Protocol-Server"
+$ThirdPartyApps = @(
+        "*ACGMediaPlayer*"
+        "*ActiproSoftwareLLC*"
+        "*AdobePhotoshopExpress*"           # Adobe Photoshop Express
+        "Amazon.com.Amazon"                 # Amazon Shop
+        "*Asphalt8Airborne*"                # Asphalt 8 Airbone
+        "*AutodeskSketchBook*"
+        "*BubbleWitch3Saga*"                # Bubble Witch 3 Saga
+        "*CaesarsSlotsFreeCasino*"
+        "*CandyCrush*"                      # Candy Crush
+        "*COOKINGFEVER*"
+        "*CyberLinkMediaSuiteEssentials*"
+        "*DisneyMagicKingdoms*"
+        "*Dolby*"                           # Dolby Products (Like Atmos)
+        "*DrawboardPDF*"
+        "*Duolingo-LearnLanguagesforFree*"  # Duolingo
+        "*EclipseManager*"
+        "*FarmVille2CountryEscape*"
+        "*FitbitCoach*"
+        "*Flipboard*"                       # Flipboard
+        "*HiddenCity*"
+        "*Keeper*"
+        "*LinkedInforWindows*"
+        "*MarchofEmpires*"
+        "*NYTCrossword*"
+        "*OneCalendar*"
+        "*PandoraMediaInc*"
+        "*PhototasticCollage*"
+        "*PicsArt-PhotoStudio*"
+        "*PolarrPhotoEditorAcademicEdition*"
+        "*RoyalRevolt*"                     # Royal Revolt
+        "*Shazam*"
+        "*Sidia.LiveWallpaper*"             # Live Wallpaper
+        "*Speed Test*"
+        "*Sway*"
+        "*WinZipUniversal*"
+        "*Wunderlist*"
+        "*XING*"
+)
 
-# XPS printer is not needed
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Printing-XPSServices-Features"
+$ManufacturerApps = @(
+    "DB6EA5DB.MediaSuiteEssentialsforDell",
+    "DB6EA5DB.PowerMediaPlayerforDell",
+    # More apps...
+    "4AE8B7C2.BOOKING.COMPARTNERAPPSAMSUNGEDITION"
+)
 
-# Remove PC Health Check App
-$PcHealthCheckBloatware = Get-WmiObject -Class Win32_Product | Where-Object{$_.Name -eq "Windows Pc-statuscontrole"}
-$PcHealthCheckBloatware.Uninstall()
+$SocialMediaApps = @(
+        "5319275A.WhatsAppDesktop"  # WhatsApp
+        "BytedancePte.Ltd.TikTok"   # TikTok
+        "FACEBOOK.317180B0BB486"    # Messenger
+        "FACEBOOK.FACEBOOK"         # Facebook
+        "Facebook.Instagram*"       # Instagram / Beta
+        "*Twitter*"                 # Twitter
+        "*Viber*"
+)
 
-# Prevent PC Health Check App from being installed
-if((Test-Path -LiteralPath "HKLM:\SOFTWARE\Microsoft\PCHC") -ne $true) {  New-Item "HKLM:\SOFTWARE\Microsoft\PCHC" -force -ea SilentlyContinue };
-New-ItemProperty -LiteralPath 'HKLM:\SOFTWARE\Microsoft\PCHC' -Name 'PreviousUninstall' -Value 1 -PropertyType DWord -Force -ea SilentlyContinue;
+$StreamingServicesApps = @(
+        "AmazonVideo.PrimeVideo"    # Amazon Prime Video
+        "*Hulu*"
+        "*iHeartRadio*"
+        "*Netflix*"                 # Netflix
+        "*Plex*"                    # Plex
+        "*SlingTV*"
+        "SpotifyAB.SpotifyMusic"    # Spotify
+        "*TuneInRadio*"
+)
 
-# Get rid of OneDrive
-Start-Process c:\windows\deploy\onedrive.bat
+# Removing Apps
+function Remove-BloatwareAppsList {
+    Write-Output "Starting the removal of Microsoft Apps..."
+    Remove-UWPApp -AppxPackages $MSApps
 
-# This command shows all the installed apps, here for debugging
-#Get-AppxPackage -AllUsers | Select Name, PackageFullName
+    Write-Output "Starting the removal of 3rd-party Apps..."
+    Remove-UWPApp -AppxPackages $ThirdPartyApps
+
+    Write-Output "Starting the removal of Social Media Apps..."
+    Remove-UWPApp -AppxPackages $SocialMediaApps
+
+    Write-Output "Starting the removal of Streaming Services Apps..."
+    Remove-UWPApp -AppxPackages $StreamingServicesApps
+}
+
+# Execute the function to remove the bloatware
+Remove-BloatwareAppsList
