@@ -5,7 +5,7 @@ function Remove-UWPApp {
     )
 
     foreach ($app in $AppxPackages) {
-        $package = Get-AppxProvisionedPackage -Name $app -ErrorAction SilentlyContinue
+        $package = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $app }
         if ($package) {
             Write-Output "Removing $app..."
             Remove-AppxProvisionedPackage -Package $package.PackageFullName -ErrorAction SilentlyContinue
