@@ -141,6 +141,18 @@ $StreamingServicesApps = @(
         "*TuneInRadio*"
 )
 
+$XboxApps = @(
+    "Microsoft.GamingApp"               # Xbox
+    "Microsoft.GamingServices"          # Gaming Services
+    "Microsoft.XboxApp"                 # Xbox Console Companion (Legacy App)
+    "Microsoft.XboxGameCallableUI"
+    "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxSpeechToTextOverlay"
+    "Microsoft.XboxGamingOverlay"       # Xbox Game Bar
+    "Microsoft.XboxIdentityProvider"    # Xbox Identity Provider (Xbox Dependency)
+    "Microsoft.Xbox.TCUI"               # Xbox Live API communication (Xbox Dependency)
+)
+
 # Removing Apps
 function Remove-BloatwareAppsList {
     Write-Output "Starting the removal of Microsoft Apps..."
@@ -154,6 +166,9 @@ function Remove-BloatwareAppsList {
 
     Write-Output "Starting the removal of Streaming Services Apps..."
     Remove-UWPApp -AppxPackages $StreamingServicesApps
+
+    Write-Output "Starting the removal of Xbox Apps..."
+    Remove-UWPApp -AppxPackages $XboxApps
 }
 
 # Execute the function to remove the bloatware
