@@ -1,88 +1,68 @@
 <#
    Windows 10 debloat
-   Tested only on Windows 10 Pro 2021H2
+   Tested only on Windows 10 Pro 2022H2
 #>
 
 # Microsoft bloatware
 $apps = @(
-    "Microsoft.3DBuilder"
-    "Microsoft.Appconnector"
-    "Microsoft.BingFinance"
-    "Microsoft.BingNews"
-    "Microsoft.BingSports"
-    "Microsoft.BingTranslator"
-    "Microsoft.BingWeather"
-    "Microsoft.FreshPaint"
-    "Microsoft.GamingServices"
-    "Microsoft.Microsoft3DViewer"
-    "Microsoft.MicrosoftEdge"
-    "Microsoft.MicrosoftEdgeDevToolsClient"
-    "Microsoft.Windows.Holographic.FirstRun"
-    "Microsoft.Windows.PeopleExperienceHost"
-    "Microsoft.MicrosoftOfficeHub"
-    "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MicrosoftSolitaireCollection"
-    "Microsoft.MicrosoftStickyNotes"
-    "Microsoft.MinecraftUWP"
-    "Microsoft.NetworkSpeedTest"
-    "Microsoft.Office.OneNote"
-    "Microsoft.OneConnect"
-    "Microsoft.People"
-    "Microsoft.Print3D"
-    "Microsoft.SkypeApp"
-    "Microsoft.Wallet"
-    "Microsoft.Windows.Photos"
-    "Microsoft.WindowsAlarms"
-    "Microsoft.WindowsCalculator"
-    "Microsoft.WindowsCamera"
-    "microsoft.windowscommunicationsapps"
-    "Microsoft.WindowsMaps"
-    "Microsoft.WindowsPhone"
-    "Microsoft.WindowsSoundRecorder"
-    "Microsoft.Xbox.TCUI"
-    "Microsoft.XboxApp"
-    "Microsoft.XboxGameOverlay"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.XboxSpeechToTextOverlay"
-    "Microsoft.YourPhone"
-    "Microsoft.ZuneMusic"
+    "Microsoft.BingWeather",
+    "Microsoft.FeedbackHub",
+    "Microsoft.GetHelp",
+    "Microsoft.GetStarted",
+    "Microsoft.Microsoft3DViewer",
+    "Microsoft.MicrosoftEdge", # This is the old Edge browser
+    "Microsoft.MicrosoftEdgeDevToolsClient",
+    "Microsoft.MicrosoftOfficeHub",
+    "Microsoft.MixedReality.Portal",
+    "Microsoft.Office.OneNote",
+    "Microsoft.People",
+    "Microsoft.ScreenSketch",
+    "Microsoft.SkypeApp",
+    "Microsoft.SolitaireCollection",
+    "Microsoft.Wallet",
+    "Microsoft.Windows.Photos",
+    "Microsoft.WindowsAlarms",
+    "Microsoft.WindowsCamera",
+    "Microsoft.WindowsMaps",
+    "Microsoft.WindowsSoundRecorder",
+    "Microsoft.windowscommunicationsapps",
+    "Microsoft.Xbox.TCUI",
+    "Microsoft.XboxApp",
+    "Microsoft.XboxGameOverlay",
+    "Microsoft.XboxIdentityProvider",
+    "Microsoft.YourPhone",
+    "Microsoft.ZuneMusic",
     "Microsoft.ZuneVideo"
-    "Microsoft.CommsPhone"
-    "Microsoft.ConnectivityStore"
-    "Microsoft.GetHelp"
-    "Microsoft.Getstarted"
-    "Microsoft.Messaging"
-    "Microsoft.Office.Sway"
-    "Microsoft.OneConnect"
-    "Microsoft.WindowsFeedbackHub"
-    "Microsoft.WindowsFeedback"
-    "Microsoft.Microsoft3DViewer"
-    "Microsoft.BingFoodAndDrink"
-    "Microsoft.BingHealthAndFitness"
-    "Microsoft.BingTravel"
-    "Microsoft.WindowsReadingList"
-    "Microsoft.MixedReality.Portal"
-    "Microsoft.ScreenSketch"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.Todos"
-    "Microsoft.MicrosoftMahjong"
-    "Microsoft.549981C3F5F10" # Dit is cortana
-    "*king.com.BubbleWitch3Saga*"
-    "*king.com.CandyCrushSodaSaga*"
-    "*king.com.CandyCrushSaga*"
-    "*Microsoft.Asphalt8Airborne*"
 )
 
+# Loop through each app and remove it from all users and system provisioning
 foreach ($app in $apps) {
-    Get-AppxPackage -Name $app | Remove-AppxPackage -AllUsers
+    Write-Output "Attempting to remove $app from all users..."
+    $packages = Get-AppxPackage -Name $app -AllUsers
+    if ($packages) {
+        $packages | Remove-AppxPackage -AllUsers
+        if (!$?) {
+            Write-Output "Failed to remove $app from all users."
+        } else {
+            Write-Output "$app removed from all users successfully."
+        }
+    } else {
+        Write-Output "No packages found for $app on any user."
+    }
 
-    Get-AppXProvisionedPackage -Online |
-        Where-Object DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
+    Write-Output "Attempting to remove provisioning for $app..."
+    $provisionedPackages = Get-AppXProvisionedPackage -Online | Where-Object DisplayName -eq $app
+    if ($provisionedPackages) {
+        $provisionedPackages | Remove-AppxProvisionedPackage -Online
+        if (!$?) {
+            Write-Output "Failed to remove provisioned package for $app."
+        } else {
+            Write-Output "Provisioning for $app removed successfully."
+        }
+    } else {
+        Write-Output "No provisioned package found for $app."
+    }
 }
-
-# Online components (Windows Store etc)
-Get-AppXProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -AllUsers
 
 # We don't need IE11
 Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Internet-Explorer-Optional-amd64"
