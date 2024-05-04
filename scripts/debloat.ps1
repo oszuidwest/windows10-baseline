@@ -30,7 +30,7 @@ function Remove-AppxPackageForAllUsers {
 }
 
 # List of Microsoft apps to be removed
-$ProvisionedMSApps = @(
+$MSApps = @(
     # Default Windows 10+ apps
     "Microsoft.3DBuilder",                    # 3D Builder
     "Microsoft.549981C3F5F10",                # Cortana
@@ -86,7 +86,7 @@ $ProvisionedMSApps = @(
 )
 
 # List of third-party apps to be removed
-$ProvisionedThirdPartyApps = @(
+$ThirdPartyApps = @(
     "*ACGMediaPlayer*",
     "*ActiproSoftwareLLC*",
     "*AdobePhotoshopExpress*",           # Adobe Photoshop Express
@@ -126,6 +126,19 @@ $ProvisionedThirdPartyApps = @(
     "*XING*"
 )
 
+# List of Xbox apps to be removed
+$XboxApps = @(
+    "Microsoft.GamingApp",               # Xbox
+    "Microsoft.GamingServices",          # Gaming Services
+    "Microsoft.XboxApp",                 # Xbox Console Companion (Legacy App)
+    "Microsoft.XboxGameCallableUI",
+    "Microsoft.XboxGameOverlay",
+    "Microsoft.XboxSpeechToTextOverlay",
+    "Microsoft.XboxGamingOverlay",       # Xbox Game Bar
+    "Microsoft.XboxIdentityProvider",    # Xbox Identity Provider (Xbox Dependency)
+    "Microsoft.Xbox.TCUI"               # Xbox Live API communication (Xbox Dependency)
+)
+
 # Execute the removal functions
-Remove-ProvisionedApp -AppxPackages $ProvisionedMSApps + $ProvisionedThirdPartyApps
-Remove-AppxPackageForAllUsers -AppxPackages $ProvisionedMSApps + $ProvisionedThirdPartyApps
+Remove-ProvisionedApp -AppxPackages $MSApps + $ThirdPartyApps + $XboxApps
+Remove-AppxPackageForAllUsers -AppxPackages $MSApps + $ThirdPartyApps + $XboxApps
