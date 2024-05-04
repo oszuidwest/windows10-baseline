@@ -16,6 +16,7 @@ $apps = @(
     "Microsoft.MicrosoftOfficeHub",
     "Microsoft.MixedReality.Portal",
     "Microsoft.MicrosoftSolitaireCollection",
+    "Microsoft.MicrosoftStickyNotes",
     "Microsoft.Office.OneNote",
     "Microsoft.People",
     "Microsoft.ScreenSketch",
