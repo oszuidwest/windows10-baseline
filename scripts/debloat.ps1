@@ -82,7 +82,11 @@ $MSApps = @(
     # Default Windows 11 apps
     "Clipchamp.Clipchamp",                    # Clipchamp – Video Editor
     "MicrosoftWindows.Client.WebExperience",  # Taskbar Widgets
-    "MicrosoftTeams"                          # Microsoft Teams / Preview
+    "MicrosoftTeams",                          # Microsoft Teams / Preview
+    "Microsoft.WindowsCamera",
+    "Microsoft.Windows.Photos",
+    "Microsoft.ScreenSketch",
+    "Microsoft.PowerAutomateDesktop"
 )
 
 # List of third-party apps to be removed
