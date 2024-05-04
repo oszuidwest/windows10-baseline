@@ -78,8 +78,8 @@ PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy Bypa
 :: Install apps
 ::===============================================================
 
-:: curl -o C:\Windows\deploy\apps.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/windows-11/scripts/apps.bat
-:: CALL sudo.bat C:\Windows\deploy\apps.bat
+curl -o C:\Windows\deploy\apps.bat https://raw.githubusercontent.com/oszuidwest/windows10-baseline/windows-11/scripts/apps.bat
+CALL sudo.bat C:\Windows\deploy\apps.bat
 
 ::===============================================================
 :: Debloat Windows 10
