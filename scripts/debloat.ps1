@@ -5,10 +5,10 @@ function Remove-ProvisionedApp {
     )
 
     foreach ($app in $AppxPackages) {
-        $packageInfo = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $app }
+        $packageInfo = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like "*$app*" }
         if ($packageInfo) {
             Remove-AppxProvisionedPackage -Online -PackageName $packageInfo.PackageName -ErrorAction SilentlyContinue
-            Write-Output "Provisioned app removed: $app"
+            Write-Output "Provisioned app removed: $($packageInfo.DisplayName)"
         } else {
             Write-Output "No provisioned app found to remove: $app"
         }
@@ -22,9 +22,9 @@ function Remove-AppxPackageForAllUsers {
     )
 
     foreach ($app in $AppxPackages) {
-        Get-AppxPackage -AllUsers -Name $app | ForEach-Object {
+        Get-AppxPackage -AllUsers -Name "*$app*" | ForEach-Object {
             Remove-AppxPackage -Package $_.PackageFullName -AllUsers -ErrorAction SilentlyContinue
-            Write-Output "Removed app for all users: $app"
+            Write-Output "Removed app for all users: $($_.Name)"
         }
     }
 }
@@ -139,6 +139,9 @@ $XboxApps = @(
     "Microsoft.Xbox.TCUI"               # Xbox Live API communication (Xbox Dependency)
 )
 
+# Combine lists into a single array for each removal
+$AllApps = $MSApps + $ThirdPartyApps + $XboxApps
+
 # Execute the removal functions
-Remove-ProvisionedApp -AppxPackages $MSApps + $ThirdPartyApps + $XboxApps
-Remove-AppxPackageForAllUsers -AppxPackages $MSApps + $ThirdPartyApps + $XboxApps
+Remove-ProvisionedApp -AppxPackages $AllApps
+Remove-AppxPackageForAllUsers -AppxPackages $AllApps
