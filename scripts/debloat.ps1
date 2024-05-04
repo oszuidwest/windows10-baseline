@@ -5,6 +5,7 @@
 
 # Microsoft bloatware
 $apps = @(
+    "Microsoft.549981C3F5F10", # This is Cortana!
     "Microsoft.BingWeather",
     "Microsoft.FeedbackHub",
     "Microsoft.GetHelp",
@@ -14,25 +15,27 @@ $apps = @(
     "Microsoft.MicrosoftEdgeDevToolsClient",
     "Microsoft.MicrosoftOfficeHub",
     "Microsoft.MixedReality.Portal",
+    "Microsoft.MicrosoftSolitaireCollection",
     "Microsoft.Office.OneNote",
     "Microsoft.People",
     "Microsoft.ScreenSketch",
     "Microsoft.SkypeApp",
-    "Microsoft.SolitaireCollection",
     "Microsoft.Wallet",
     "Microsoft.Windows.Photos",
     "Microsoft.WindowsAlarms",
     "Microsoft.WindowsCamera",
+    "Microsoft.WindowsFeedbackHub",
     "Microsoft.WindowsMaps",
     "Microsoft.WindowsSoundRecorder",
-    "Microsoft.windowscommunicationsapps",
     "Microsoft.Xbox.TCUI",
     "Microsoft.XboxApp",
+    "Microsoft.XboxGameCallableUI",
     "Microsoft.XboxGameOverlay",
     "Microsoft.XboxIdentityProvider",
     "Microsoft.YourPhone",
     "Microsoft.ZuneMusic",
-    "Microsoft.ZuneVideo"
+    "Microsoft.ZuneVideo",
+    "Microsoft.windowscommunicationsapps"
 )
 
 # Loop through each app and remove it from all users and system provisioning
