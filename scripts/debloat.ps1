@@ -5,10 +5,10 @@ function Remove-UWPApp {
     )
 
     foreach ($app in $AppxPackages) {
-        $package = Get-AppxPackage -Name $app -ErrorAction SilentlyContinue
+        $package = Get-AppxProvisionedPackage -Name $app -ErrorAction SilentlyContinue
         if ($package) {
             Write-Output "Removing $app..."
-            Remove-AppxPackage -Package $package.PackageFullName -ErrorAction SilentlyContinue
+            Remove-AppxProvisionedPackage -Package $package.PackageFullName -ErrorAction SilentlyContinue
             Write-Output "$app removed successfully."
         }
         else {
@@ -111,13 +111,6 @@ $ThirdPartyApps = @(
         "*WinZipUniversal*"
         "*Wunderlist*"
         "*XING*"
-)
-
-$ManufacturerApps = @(
-    "DB6EA5DB.MediaSuiteEssentialsforDell",
-    "DB6EA5DB.PowerMediaPlayerforDell",
-    # More apps...
-    "4AE8B7C2.BOOKING.COMPARTNERAPPSAMSUNGEDITION"
 )
 
 $SocialMediaApps = @(
