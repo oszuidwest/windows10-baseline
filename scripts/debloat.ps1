@@ -33,6 +33,7 @@ $apps = @(
     "Microsoft.XboxApp",
     "Microsoft.XboxGameCallableUI",
     "Microsoft.XboxGameOverlay",
+    "Microsoft.XboxSpeechToTextOverlay",
     "Microsoft.XboxIdentityProvider",
     "Microsoft.YourPhone",
     "Microsoft.ZuneMusic",
