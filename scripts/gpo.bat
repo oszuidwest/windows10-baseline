@@ -1,9 +1,9 @@
-curl -o C:\Windows\deploy\LGPO.exe https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/bin/LGPO.exe
+curl -o C:\Windows\deploy\LGPO.exe https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/bin/LGPO.exe
 
-curl -o C:\Windows\deploy\userpol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/gpo/userpol.txt
-curl -o C:\Windows\deploy\syspol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/gpo/syspol.txt 
-curl -o C:\Windows\deploy\firefoxpol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/gpo/firefoxpol.txt
-curl -o C:\Windows\deploy\edgepol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/master/gpo/edgepol.txt 
+curl -o C:\Windows\deploy\userpol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/gpo/userpol.txt
+curl -o C:\Windows\deploy\syspol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/gpo/syspol.txt 
+curl -o C:\Windows\deploy\firefoxpol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/gpo/firefoxpol.txt
+curl -o C:\Windows\deploy\edgepol.txt https://raw.githubusercontent.com/oszuidwest/windows10-baseline/main/gpo/edgepol.txt 
 
 TIMEOUT 5
 
