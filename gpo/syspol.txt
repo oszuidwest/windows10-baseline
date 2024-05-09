@@ -3,6 +3,16 @@
 ; Source file:  C:\Registry.pol
 
 Computer
+Software\Policies\Microsoft\MicrosoftAccount
+DisableUserAuth
+DWORD:0
+
+Computer
+Software\Policies\Microsoft\Windows\Windows Feeds
+EnableFeeds
+DWORD:0
+
+Computer
 Software\Microsoft\Windows\CurrentVersion\Policies\System
 HideFastUserSwitching
 DWORD:1
