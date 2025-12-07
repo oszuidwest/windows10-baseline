@@ -1,4 +1,8 @@
 # windows10-baseline
+
+> [!WARNING]
+> This repository is obsolete and archived. Please use the successor: [windows11-baseline](https://github.com/oszuidwest/windows11-baseline)
+
 Baseline configuration for Windows 10 computers owned by Streekomroep ZuidWest. Based on nl_NL Windows 10 Pro 22H2. Not tested on other versions.
 
 ## How to use
